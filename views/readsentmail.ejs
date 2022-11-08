@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shery-Mail</title>
+    <style>
+        *::-webkit-scrollbar{
+            width: 10px;
+        }
+        *::-webkit-scrollbar-thumb{
+            background-color: rgb(198, 198, 198);
+        }
+
+        #mailcomposediv{
+            transform: translateY(100%);
+            transition: all cubic-bezier(0.19, 1, 0.22, 1) .3s;
+        }
+
+        #unread{
+            height: 4px;
+            width: 7px;
+            border-radius: 50%;
+            background-color: red;
+            margin-bottom: 5px;
+        }
+
+        .mails{
+            position: relative;
+        }
+
+        #send{
+            position: relative;
+            left: -0%;
+            padding: 0px 0px;
+            width: 30%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container p-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="/logout" class="text-danger">Logout</a>
+        </div>
+        <hr>
+        <a class="btn btn-sm btn-info" href="/profile">Go Back</a>
+        <hr>
+        <div class="mails overflow-auto" style="height: 60vh;">
+           <div id="send">
+            <h3><%= mail.userid.name %></h3> <h5>to</h5> <h3><%= mail.receiver %></h3>
+           </div>
+           <%= mail.mailtext %>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>
